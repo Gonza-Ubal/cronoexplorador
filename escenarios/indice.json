@@ -1,0 +1,12 @@
+{
+  "modulos": [
+    { "n": 1, "nombre": "Patio del colegio", "tema": "Iniciar y sumarse a un juego", "icono": "⚽", "escenarios": [] },
+    { "n": 2, "nombre": "Biblioteca", "tema": "Conversar por turnos, como en el boulder", "icono": "📚", "escena": "biblioteca", "escenarios": ["biblioteca-01"] },
+    { "n": 3, "nombre": "Base en Marte", "tema": "Decodificar lo que la gente quiere decir", "icono": "🔴", "escena": "marte", "escenarios": ["marte-01"] },
+    { "n": 4, "nombre": "Estación espacial", "tema": "Turnarse y compartir", "icono": "🛰️", "escenarios": [] },
+    { "n": 5, "nombre": "Muro de escalada", "tema": "Ganar, perder y animar", "icono": "🧗", "escenarios": [] },
+    { "n": 6, "nombre": "Cumpleaños", "tema": "Bromas, ironía y grupos", "icono": "🎂", "escena": "cumple", "escenarios": ["cumple-01"] },
+    { "n": 7, "nombre": "Prehistoria con Krag", "tema": "Pedir ayuda y poner límites", "icono": "🔥", "escenarios": [] },
+    { "n": 8, "nombre": "Regreso a casa", "tema": "Despedirse con amabilidad", "icono": "🏠", "escenarios": [] }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "id": "cumple-01",
+  "modulo": 6,
+  "titulo": "El cumpleaños de Tomás",
+  "foco": ["A", "B"],
+  "sutileza": 1,
+  "escena": "cumple",
+  "muro": "tomas",
+  "muro_nombre": "Los demás",
+  "variables": { "interes_g": 5, "interes_m": 6 },
+  "limites": { "interes_g": [0, 10], "interes_m": [0, 10] },
+  "persistentes": ["amistad_matilde"],
+  "inicio": "c0",
+  "bitacora": {
+    "invitacion": "¿Qué ley social descubriste hoy en el cumpleaños? Escríbela con tus palabras.",
+    "sugerencias": [
+      "La misma ironía puede ser molesta o amistosa: depende de las pistas.",
+      "En un grupo, cada persona tiene su propio termómetro.",
+      "Si una broma no me gusta, puedo decirlo."
+    ]
+  },
+  "nodos": {
+    "c0": {
+      "tipo": "narracion",
+      "texto": "Clic. La cuerda del tiempo los deja en la puerta de una casa con globos. Hoy es el cumpleaños de Tomás, un compañero de curso. Adentro se escuchan risas.",
+      "krag": "«Huele a fruta dulce quemada», dice Krag. Es la torta.",
+      "krag_cara": "sonrisa",
+      "siguiente": "c1"
+    },
+    "c1": {
+      "tipo": "decodificador",
+      "contexto": "La mamá de Tomás abre la puerta.",
+      "habla": "mama",
+      "cara": "sonrisa",
+      "frase": "¡Pasen, pasen! Están en su casa.",
+      "krag": "Krag se saca las sandalias, se echa en el sillón y pregunta: «Si es mi casa, ¿dónde guardo mi lanza?».",
+      "pistas": [
+        { "canal": "contexto", "texto": "Es la primera vez que vienen a esta casa." },
+        { "canal": "cara", "texto": "Sonríe y les muestra dónde dejar las mochilas." },
+        { "canal": "antes", "texto": "Les dice lo mismo a todos los invitados que llegan." }
+      ],
+      "significados": [
+        { "texto": "Les da la bienvenida y quiere que estén cómodos.", "plausibilidad": 0.94 },
+        { "texto": "Pueden hacer todo lo que hacen en su propia casa.", "plausibilidad": 0.04 },
+        { "texto": "Les está regalando la casa.", "plausibilidad": 0.02 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Dónde podemos sentarnos?",
+        "respuesta": "«Donde quieran, en el living. Y si necesitan algo, me avisan», dice la mamá de Tomás. Krag se baja del sillón y pregunta dónde deja las sandalias."
+      },
+      "explicacion": "Es una frase de cortesía: significa «bienvenidos, pónganse cómodos». Las reglas de la casa siguen siendo las de sus dueños; por ejemplo, se pregunta antes de abrir el refrigerador.",
+      "glosario": "estan-en-su-casa",
+      "siguiente": "c2"
+    },
+    "c2": {
+      "tipo": "decodificador",
+      "contexto": "Traes tu regalo: una caja enorme que casi no pasa por la puerta. Un niño llamado Benja te ayuda a entrarla.",
+      "habla": "benja",
+      "cara": "sonrisa",
+      "frase": "¡Uy, qué regalo tan chiquitito!",
+      "krag": "«No es chiquitito. Es más grande que un jabalí», corrige Krag, muy serio.",
+      "pistas": [
+        { "canal": "cara", "texto": "Benja sonríe y levanta las cejas." },
+        { "canal": "tono", "texto": "Lo dice riéndose." },
+        { "canal": "contexto", "texto": "La caja es más grande que tu mochila." },
+        { "canal": "antes", "texto": "Acaba de ayudarte a pasar la caja por la puerta." }
+      ],
+      "significados": [
+        { "texto": "Es un chiste: quiere decir que el regalo es ENORME.", "plausibilidad": 0.92 },
+        { "texto": "Se está burlando para hacerte sentir mal.", "plausibilidad": 0.05 },
+        { "texto": "Cree de verdad que el regalo es chico.", "plausibilidad": 0.03 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Lo dices en broma?",
+        "respuesta": "«¡Obvio! Es el regalo más grande que he visto. ¿Qué trae?», dice Benja."
+      },
+      "explicacion": "Es ironía: dice lo contrario de lo que piensa. Pero no toda ironía es de enojo. Aquí hay sonrisa, risa y ayuda: es ironía amistosa, una forma de jugar. El mecanismo es el mismo; lo que cambia es la intención, y eso lo dicen las pistas.",
+      "glosario": "regalo-chiquitito",
+      "siguiente": "c3"
+    },
+    "c3": {
+      "tipo": "decision",
+      "contexto": "En la mesa, Tomás, Benja y Matilde (¡la niña de los pulpos!) miran un álbum de láminas.",
+      "habla": "tomas",
+      "cara": "sonrisa",
+      "frase": "¡Con esta ya tengo 512 láminas!",
+      "palabras": { "otro": 7 },
+      "pregunta": "Tú tienes ganas de hablar de Júpiter. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "Decir: «¿Sabían que Júpiter tiene 95 lunas?» y contar cuáles son las más grandes.",
+          "pensamiento": "Es un dato increíble. Seguro que les gusta.",
+          "efectos": { "interes_g": -2, "interes_m": 1 },
+          "palabras": { "yo": 40, "otro": 2 },
+          "cara": "aparte",
+          "consecuencia": "Tomás y Benja se miran y siguen pegando láminas. Matilde sí te escucha: «¿Noventa y cinco?».",
+          "porque": "El dato es buenísimo, pero llegó en medio de otro tema: ellos iban en las láminas. Cuando un grupo ya va conversando, entrar primero con el tema de ellos abre la puerta para el tuyo después. Y fíjate: a Matilde sí le interesó.",
+          "siguiente": "c4"
+        },
+        {
+          "texto": "Escuchar un rato y preguntar: «¿Cuál es la lámina más difícil de conseguir?»",
+          "pensamiento": "Primero miro de qué están hablando.",
+          "herramienta": "pregunta_de_vuelta",
+          "pregunta": true,
+          "efectos": { "interes_g": 2 },
+          "palabras": { "yo": 9, "otro": 18 },
+          "cara": "sonrisa",
+          "consecuencia": "«¡La 300, la brillante!», dicen Tomás y Benja casi al mismo tiempo. Te hacen un espacio en la mesa.",
+          "porque": "Entrar a un grupo se parece a llegar a un muro donde ya hay gente escalando: primero miras la ruta que llevan y después te sumas a ella.",
+          "siguiente": "c4"
+        },
+        {
+          "texto": "Preguntar: «¿Cuántas láminas tiene el álbum completo?» y calcular cuántas le faltan.",
+          "pensamiento": "Ahí hay una resta esperándome.",
+          "herramienta": "puente",
+          "pregunta": true,
+          "efectos": { "interes_g": 2 },
+          "palabras": { "yo": 14, "otro": 16 },
+          "cara": "sorpresa",
+          "consecuencia": "«Tiene 670», dice Tomás. «Entonces te faltan 158», respondes. Tomás abre los ojos: «¡¿Cómo lo sacaste tan rápido?!».",
+          "porque": "Un puente con números: usaste algo que te gusta a ti (calcular) dentro del tema de ellos (el álbum). Así tu interés entró a la conversación sin cambiarla de rumbo.",
+          "siguiente": "c4"
+        }
+      ]
+    },
+    "c4": {
+      "tipo": "termometro",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "sobre": "matilde",
+      "texto": "En un grupo hay más de un termómetro. Midamos dos.",
+      "pregunta": "Primero Matilde: ¿cuánto interés tiene en lo que tú dices?",
+      "senales": ["Te mira cuando hablas.", "Te hizo una pregunta.", "Se corrió para dejarte espacio a su lado."],
+      "real": "interes_m",
+      "preguntar": {
+        "dices": "Matilde, ¿después te cuento algo del espacio?",
+        "respuestas": [
+          { "max": 5, "texto": "«Mmm, después. Ahora quiero ver las láminas».", "cara": "neutral" },
+          { "max": 10, "texto": "«¡Ya! ¿Es de los espaguetis espaciales?»", "cara": "sonrisa" }
+        ]
+      },
+      "explicacion": "Matilde ya te conoce de la biblioteca, y eso también es una pista: con alguien que ya conversó contigo, el termómetro suele partir más alto.",
+      "siguiente": "c5"
+    },
+    "c5": {
+      "tipo": "termometro",
+      "habla": "benja",
+      "cara": "sonrisa",
+      "sobre": "benja",
+      "pregunta": "Ahora Benja: ¿cuánto interés tiene en lo que tú dices?",
+      "senales": ["Te muestra su álbum.", "Te responde con frases completas.", "Se ríe contigo."],
+      "variantes": [
+        {
+          "si": { "var": "interes_g", "op": "<=", "valor": 4 },
+          "cara": "aparte",
+          "senales": ["Sigue pegando láminas sin levantar la vista.", "Habla solo con Tomás.", "Está medio de espalda a ti."]
+        }
+      ],
+      "real": "interes_g",
+      "preguntar": {
+        "dices": "¿Les aburre si hablo de planetas?",
+        "respuestas": [
+          { "max": 4, "texto": "«Un poco. Es que estamos con las láminas. ¿Quieres ver las mías?»", "cara": "neutral" },
+          { "max": 10, "texto": "«No, pero primero mira esta lámina brillante».", "cara": "sonrisa" }
+        ]
+      },
+      "explicacion": "En un grupo no hay un solo termómetro: cada persona tiene el suyo. A una le puede interesar mucho y a otra poco, al mismo tiempo. Las dos cosas son información, no un problema.",
+      "siguiente": "c6"
+    },
+    "c6": {
+      "tipo": "decision",
+      "contexto": "Juegan a ponerle la cola al burro. Con los ojos vendados, clavas la cola… en la cortina.",
+      "habla": "benja",
+      "cara": "sonrisa",
+      "frase": "¡Bravo, campeón! ¡Casi le das a la ventana!",
+      "palabras": { "otro": 8 },
+      "pistas": [
+        { "canal": "antes", "texto": "Hace un rato Benja falló y se rió de sí mismo: «¡Soy un desastre!»." },
+        { "canal": "cara", "texto": "Te mira sonriendo, como esperando que te rías." },
+        { "canal": "tono", "texto": "Lo dice fuerte y riéndose, no en voz baja ni a escondidas." },
+        { "canal": "contexto", "texto": "Todos se están riendo de sus propios intentos." }
+      ],
+      "pregunta": "¿Broma amistosa o burla? ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "Reírte y decir: «¡La cortina también quería cola!»",
+          "pensamiento": "Él también falló y se rió. Creo que estamos jugando.",
+          "palabras": { "yo": 6, "otro": 5 },
+          "consecuencia": "Benja se ríe tanto que casi se cae. «¡La cortina-burro!». Tomás le pone orejas de papel a la cortina.",
+          "porque": "Las pistas apuntaban a broma amistosa: él se rió antes de sí mismo y te miraba esperando que te rieras con él. Reírse juntos de un error es una forma de decir «somos del mismo equipo».",
+          "siguiente": "c7"
+        },
+        {
+          "texto": "Preguntar: «¿Es broma?»",
+          "pensamiento": "No estoy seguro. Mejor lo confirmo.",
+          "verificacion": true,
+          "pregunta": true,
+          "palabras": { "yo": 2, "otro": 11 },
+          "consecuencia": "«¡Obvio que es broma! Yo le di a la lámpara», dice Benja, y te pasa la venda para el siguiente.",
+          "porque": "Con las bromas muchas veces cuesta saber. Preguntar lo aclara en un segundo, y la mayoría de las personas responde sin problema.",
+          "siguiente": "c7"
+        },
+        {
+          "texto": "Decir tranquilo: «Esa broma no me gustó.»",
+          "pensamiento": "Aunque sea broma, me hizo sentir mal.",
+          "palabras": { "yo": 5, "otro": 7 },
+          "cara": "neutral",
+          "consecuencia": "Benja deja de reírse: «Perdón, era leseo. No lo hago más». Y te pasa un vaso de jugo.",
+          "porque": "Aunque la intención sea buena, si una broma te hace sentir mal puedes decirlo: poner ese límite es tu derecho. Y si alguien sigue después de que se lo pediste, ya no es broma: ahí conviene avisarle a un adulto.",
+          "siguiente": "c7"
+        }
+      ]
+    },
+    "c7": {
+      "tipo": "decodificador",
+      "contexto": "La mamá de Tomás sale de la cocina cargada de bandejas.",
+      "habla": "mama",
+      "cara": "sorpresa",
+      "frase": "{nombre}, ¿me echai una mano?",
+      "krag": "Krag estira su mano hacia ella y la deja ahí, quieto: «Toma la mía. Tengo dos».",
+      "pistas": [
+        { "canal": "cuerpo", "texto": "Lleva tres bandejas y una se le está resbalando." },
+        { "canal": "contexto", "texto": "Va camino a la mesa del comedor." },
+        { "canal": "cara", "texto": "Te mira a ti y después mira las bandejas." }
+      ],
+      "significados": [
+        { "texto": "Quiere que la ayudes con las bandejas.", "plausibilidad": 0.95 },
+        { "texto": "Quiere darte la mano para saludarte.", "plausibilidad": 0.03 },
+        { "texto": "Quiere que le lances algo.", "plausibilidad": 0.02 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Quiere que le ayude con las bandejas?",
+        "respuesta": "«¡Sí, porfa! Toma esta de arriba», dice la mamá de Tomás. Krag, al ver eso, toma otra."
+      },
+      "explicacion": "«Echar una mano» es un modismo: significa ayudar. Y «¿me echai…?» es la forma chilena de decir «¿me echas…?». Nadie lanza ninguna mano.",
+      "glosario": "echar-una-mano",
+      "siguiente": "c8"
+    },
+    "c8": {
+      "tipo": "decision",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "frase": "¿Sabían que los pulpos pueden cambiar de color?",
+      "palabras": { "otro": 8 },
+      "pregunta": "Matilde le está contando de pulpos a Tomás. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "Preguntar: «¿De qué color se ponen cuando se asustan?»",
+          "pensamiento": "Eso no lo sé. Me da curiosidad.",
+          "herramienta": "pregunta_de_vuelta",
+          "pregunta": true,
+          "efectos": { "amistad_matilde": 1 },
+          "palabras": { "yo": 9, "otro": 14 },
+          "consecuencia": "«¡Blancos! Y cuando se enojan, rojos», dice Matilde. Tomás quiere saber si también cambian de forma.",
+          "porque": "Tu pregunta le dio a Matilde otro turno en el muro, y además sumó a Tomás a la conversación.",
+          "siguiente": "c9"
+        },
+        {
+          "texto": "Decir: «Los agujeros negros no cambian de color, pero…» y contar lo que sabes.",
+          "pensamiento": "Color… eso me recuerda lo del horizonte de sucesos.",
+          "palabras": { "yo": 40, "otro": 3 },
+          "cara": "aparte",
+          "consecuencia": "Matilde se queda a medio contar. Tomás escucha un poco y después mira la torta.",
+          "porque": "Matilde iba recién empezando su turno. Tu tema puede entrar después: una buena pista de que es tu momento es que alguien te pregunte o que el otro termine su idea.",
+          "siguiente": "c9"
+        },
+        {
+          "texto": "Escuchar mientras comes torta.",
+          "pensamiento": "No tengo ganas de hablar ahora. Quiero escuchar.",
+          "palabras": { "otro": 20 },
+          "consecuencia": "Matilde cuenta que los pulpos se ponen blancos cuando se asustan. Tú escuchas y comes torta. Está rica.",
+          "porque": "Escuchar también es participar. No hace falta hablar en cada turno; a veces el cuerpo pide una pausa, y está bien dársela.",
+          "siguiente": "c9"
+        }
+      ],
+      "variantes": [
+        {
+          "si": { "var": "amistad_matilde", "op": ">=", "valor": 2 },
+          "frase": "¡{nombre}! Cuéntale a Tomás lo del espagueti espacial.",
+          "nota": "Esto pasa porque en la biblioteca quedaron de seguir conversando. Una conversación buena deja el muro armado para la siguiente.",
+          "pregunta": "Matilde te pasó el muro delante de todos. ¿Qué haces?",
+          "opciones": [
+            {
+              "texto": "«Si caes en un agujero negro, te estiras como un espagueti. ¿Quieren saber por qué?»",
+              "pensamiento": "Parto corto y veo si quieren más.",
+              "herramienta": "version_corta",
+              "pregunta": true,
+              "efectos": { "amistad_matilde": 1 },
+              "palabras": { "yo": 15, "otro": 9 },
+              "cara": "sonrisa",
+              "consecuencia": "«¡¿Como espagueti?!», grita Tomás. «¡Sí, cuenta!». Benja deja el álbum para escuchar.",
+              "porque": "Te pidieron tu tema, así que el turno es tuyo. Con la versión corta y una pregunta, cada uno del grupo decide si quiere más.",
+              "siguiente": "c9"
+            },
+            {
+              "texto": "Contar la explicación completa, con el horizonte de sucesos y todo.",
+              "pensamiento": "Me lo pidieron. Puedo contarlo bien.",
+              "palabras": { "yo": 80, "otro": 6 },
+              "cara": "sonrisa",
+              "consecuencia": "Matilde y Tomás escuchan todo. Benja escucha la mitad y vuelve a sus láminas, sin molestarse.",
+              "porque": "Te lo pidieron, así que una presa grande está bien. En un grupo es normal que alguien se quede hasta el final y otro no: cada uno tiene su termómetro.",
+              "siguiente": "c9"
+            },
+            {
+              "texto": "«Te estiras como un espagueti. ¿Qué animal creen que se estiraría mejor?»",
+              "pensamiento": "Si les pregunto, todos pueden jugar.",
+              "herramienta": "puente",
+              "pregunta": true,
+              "efectos": { "amistad_matilde": 1 },
+              "palabras": { "yo": 12, "otro": 15 },
+              "cara": "sonrisa",
+              "consecuencia": "«¡El pulpo!», dice Matilde. «¡La jirafa!», dice Benja. «¡Mi perro salchicha!», dice Tomás, y todos se ríen.",
+              "porque": "Respondiste y abriste el muro para todos con una pregunta que cualquiera puede contestar. Ese es un puente para grupos.",
+              "siguiente": "c9"
+            }
+          ]
+        }
+      ]
+    },
+    "c9": {
+      "tipo": "acertijo",
+      "contexto": "La mamá de Tomás trae una canasta con bolsitas de sorpresa, todas iguales por fuera.",
+      "enunciado": "Hay 12 bolsitas y solo 3 traen una lámina de planeta. Si sacas una sin mirar, ¿qué probabilidad tienes de que traiga planeta? Responde en porcentaje.",
+      "respuesta": 25,
+      "pistas": [
+        "3 de 12 es lo mismo que 1 de 4.",
+        "Si 1 de cada 4 trae planeta, ¿cuántas de cada 100?"
+      ],
+      "explicacion": "3 de 12 = 1 de 4 = 25 %. Sacas una… y trae un autoadhesivo de dinosaurio. Con 75 % de probabilidad de «no planeta», era lo más esperable.",
+      "siguiente": "c10"
+    },
+    "c10": {
+      "tipo": "acertijo",
+      "contexto": "Ya se abrieron 4 bolsitas, y 2 de ellas traían planeta.",
+      "enunciado": "Quedan 8 bolsitas cerradas. ¿Cuántas de esas 8 traen lámina de planeta?",
+      "respuesta": 1,
+      "pistas": [
+        "Al principio había 3 con planeta en total.",
+        "Ya salieron 2 de esas 3."
+      ],
+      "explicacion": "Queda 1 de 8, o sea 12,5 %: la mitad que al principio. Las probabilidades cambian cuando llega información nueva, igual que tus hipótesis sobre lo que la gente quiere decir.",
+      "siguiente": "c11"
+    },
+    "c11": {
+      "tipo": "decodificador",
+      "contexto": "Tomás abre tu regalo: un libro del espacio. Es el regalo número diez.",
+      "habla": "tomas",
+      "cara": "neutral",
+      "frase": "Ah… un libro. Gracias.",
+      "pistas": [
+        { "canal": "tono", "texto": "Lo dice con voz plana, sin subir ni bajar." },
+        { "canal": "antes", "texto": "Lleva diez regalos abiertos, con todos mirándolo." },
+        { "canal": "cuerpo", "texto": "Deja el libro sobre el montón con cuidado; no lo tira." },
+        { "canal": "cara", "texto": "Se le escapa un bostezo chico." }
+      ],
+      "significados": [
+        { "texto": "Está cansado de abrir tantos regalos.", "plausibilidad": 0.45 },
+        { "texto": "No le gustó mucho el regalo.", "plausibilidad": 0.35 },
+        { "texto": "Le gustó, pero le da vergüenza mostrarlo delante de todos.", "plausibilidad": 0.2 }
+      ],
+      "ambiguo": true,
+      "incierto": "Incierto: no se puede saber ahora, y está bien dejarlo así.",
+      "explicacion": "A veces las pistas no alcanzan y tampoco es buen momento para preguntar: Tomás está cansado y con todos mirando. Dejarlo pasar es una opción válida. Si te sigue importando, puedes preguntarle otro día, a solas: «¿Te gustó el libro?».",
+      "siguiente": "c12"
+    },
+    "c12": {
+      "tipo": "grafico",
+      "texto": "Así quedó el muro del cumpleaños. En un grupo hay muchas voces, así que tu parte suele ser más chica que en una conversación de a dos.",
+      "nota": "Con tres o cuatro personas conversando, que tu parte sea menos de la mitad es lo normal. No hay un número que cumplir.",
+      "siguiente": "c13"
+    },
+    "c13": {
+      "tipo": "fin",
+      "habla": "mama",
+      "cara": "sonrisa",
+      "frase": "Niños, en diez minutos llegan los papás a buscarlos.",
+      "krag": "«En esta fiesta nadie cazó nada y todos comieron», dice Krag. «Voy a contarlo en mi cueva y no me van a creer».",
+      "krag_cara": "sonrisa",
+      "texto": "El cronomosquetón vibra: la cuerda del tiempo está lista.",
+      "siguiente": null
+    }
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "id": "biblioteca-01",
+  "modulo": 2,
+  "titulo": "El muro de la biblioteca",
+  "foco": ["B"],
+  "sutileza": 1,
+  "escena": "biblioteca",
+  "muro": "matilde",
+  "variables": { "interes": 6 },
+  "limites": { "interes": [0, 10] },
+  "persistentes": ["amistad_matilde"],
+  "inicio": "b0",
+  "bitacora": {
+    "invitacion": "¿Qué ley social descubriste hoy en la biblioteca? Escríbela con tus palabras.",
+    "sugerencias": [
+      "Una pregunta de vuelta es decirle al otro «te toca».",
+      "Si el otro pregunta por mi tema, puedo hablar más.",
+      "Las señales dan pistas, pero preguntar da datos."
+    ]
+  },
+  "nodos": {
+    "b0": {
+      "tipo": "narracion",
+      "texto": "Clic. La cuerda del tiempo los deja en la biblioteca del colegio. Encuentras el libro que buscabas: uno de agujeros negros. En la mesa del lado, una niña lee un libro de pulpos. Se llama Matilde.",
+      "krag": "«¿Quién cazó tantas hojas?», pregunta Krag mirando los estantes.",
+      "nota": "Se te ocurre una idea: conversar es como turnarse en el muro de boulder. Uno hace su intento y después se baja de la colchoneta para que escale el otro. Cada vez que alguien habla, pone una presa en el muro. Mientras más habla, más grande es la presa.",
+      "siguiente": "b1"
+    },
+    "b1": {
+      "tipo": "decision",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "frase": "Hola. ¿Qué libro encontraste?",
+      "palabras": { "otro": 4 },
+      "pregunta": "Te toca a ti en el muro. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "Contarle todo lo que sabes de los agujeros negros: cómo se forman, el horizonte de sucesos, la espaguetización y el que está en el centro de la Vía Láctea.",
+          "pensamiento": "Es mi tema favorito y ella preguntó. ¡Hay tanto que contar!",
+          "efectos": { "interes": -2 },
+          "palabras": { "yo": 90 },
+          "cara": "aparte",
+          "consecuencia": "Matilde escucha el comienzo con atención. Hacia la mitad mira su libro de pulpos y dice «ah».",
+          "porque": "Tu tema es buenísimo. Lo que pasó es que ella hizo una pregunta corta y tú te quedaste mucho rato en el muro: todavía no sabe si le interesa tanto. Con una probadita, ella puede decidir si quiere más.",
+          "siguiente": "b2"
+        },
+        {
+          "texto": "«Uno de agujeros negros: tiran tan fuerte que ni la luz puede escapar. ¿Quieres saber más?»",
+          "pensamiento": "Le cuento mi mejor dato y veo si le interesa.",
+          "herramienta": "version_corta",
+          "pregunta": true,
+          "efectos": { "interes": 1 },
+          "palabras": { "yo": 16, "otro": 13 },
+          "cara": "sorpresa",
+          "consecuencia": "Matilde abre los ojos: «¿Ni la luz? Qué raro. Después me cuentas más. Yo estoy leyendo de pulpos».",
+          "porque": "Esta es la «versión corta»: tu mejor dato en una frase y una pregunta. Es como bajarte de la colchoneta y decir «te toca»: el otro decide si quiere seguir tu ruta.",
+          "siguiente": "b2"
+        },
+        {
+          "texto": "«Uno de agujeros negros. ¿Y tú qué estás leyendo?»",
+          "pensamiento": "Ella también tiene un libro. Me da curiosidad cuál es.",
+          "herramienta": "pregunta_de_vuelta",
+          "pregunta": true,
+          "efectos": { "interes": 1 },
+          "palabras": { "yo": 9, "otro": 10 },
+          "cara": "sonrisa",
+          "consecuencia": "Matilde levanta su libro: «¡De pulpos! Son los animales más raros del mar».",
+          "porque": "Hiciste una «pregunta de vuelta». A las personas les gusta que alguien quiera saber de lo suyo, igual que a ti cuando te preguntan por el espacio.",
+          "siguiente": "b2"
+        }
+      ]
+    },
+    "b2": {
+      "tipo": "termometro",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "sobre": "matilde",
+      "pregunta": "¿Cuánto interés tiene Matilde en la conversación ahora?",
+      "senales": ["Te mira a ti y a tu libro.", "Hizo un comentario propio.", "Acercó un poco su silla."],
+      "variantes": [
+        {
+          "si": { "var": "interes", "op": "<=", "valor": 4 },
+          "cara": "aparte",
+          "senales": ["Dijo «ah» y nada más.", "Mira su libro mientras hablas.", "Dobla y desdobla su marcapáginas."]
+        }
+      ],
+      "real": "interes",
+      "preguntar": {
+        "dices": "¿Te está gustando lo que conversamos, o cambiamos de tema?",
+        "respuestas": [
+          { "max": 4, "texto": "«Mmm… es que no entendí mucho. ¿Puedo contarte de mi libro?»", "cara": "neutral" },
+          { "max": 7, "texto": "«Sí, está bien. Pero yo también quiero contarte algo».", "cara": "sonrisa" },
+          { "max": 10, "texto": "«¡Sí! Sigamos».", "cara": "sonrisa" }
+        ]
+      },
+      "explicacion": "Nadie puede leer mentes: las señales solo dan pistas. Por eso una estimación cercana ya es muy buena, y preguntar siempre vale.",
+      "siguiente": "b3"
+    },
+    "b3": {
+      "tipo": "decision",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "frase": "¿Sabías que los pulpos tienen tres corazones?",
+      "palabras": { "otro": 8 },
+      "pregunta": "Te toca otra vez. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "«Los agujeros negros no tienen corazón, pero tienen una singularidad en el centro, que es un punto de densidad infinita…» Y sigues con eso.",
+          "pensamiento": "¡Corazón, centro! Se conecta con lo que yo sé.",
+          "efectos": { "interes": -2 },
+          "palabras": { "yo": 45 },
+          "cara": "aparte",
+          "consecuencia": "Matilde se queda con la boca medio abierta: iba a contar para qué sirven los tres corazones. Vuelve a mirar su libro.",
+          "porque": "Conectaste su dato con tu tema, y eso es ingenioso. Pero te subiste altiro de nuevo al muro y ella se quedó sin su intento. El puente funciona mejor cuando termina en una pregunta para el otro.",
+          "siguiente": "b4"
+        },
+        {
+          "texto": "«¿Tres? ¿Y para qué les sirven tres corazones?»",
+          "pensamiento": "No tengo idea de para qué sirven tres. Quiero saber.",
+          "herramienta": "pregunta_de_vuelta",
+          "pregunta": true,
+          "efectos": { "interes": 2 },
+          "palabras": { "yo": 8, "otro": 20 },
+          "cara": "sonrisa",
+          "consecuencia": "«¡Dos mandan sangre a las branquias y uno al resto del cuerpo!», dice Matilde. Se nota que le encanta que le pregunten.",
+          "porque": "Una pregunta sobre el tema del otro es como decirle «te toca»: ahora ella puede hacer su intento en el muro.",
+          "siguiente": "b4"
+        },
+        {
+          "texto": "«¡Tres! A mí me gustan los números raros del espacio. ¿Los pulpos tienen más números raros?»",
+          "pensamiento": "A los dos nos gustan los datos raros. Ahí hay una conexión.",
+          "herramienta": "puente",
+          "pregunta": true,
+          "efectos": { "interes": 2 },
+          "palabras": { "yo": 17, "otro": 16 },
+          "cara": "sonrisa",
+          "consecuencia": "«¡Sí! Nueve cerebros y ocho brazos», dice Matilde. «¿Y cuáles son los números raros del espacio?».",
+          "porque": "Esto es un «puente»: une lo que te gusta a ti (los números) con lo que le gusta a ella (los pulpos). Los dos temas caben en el mismo muro.",
+          "siguiente": "b4"
+        }
+      ]
+    },
+    "b4": {
+      "tipo": "decision",
+      "texto": "Krag se sienta al lado de Matilde. «Yo sé rastrear mamuts», dice. Y le explica: la huella, el pasto aplastado, el viento, la bosta fresca, la bosta vieja… Lleva mucho rato hablando sin parar.",
+      "habla": "matilde",
+      "cara": "aparte",
+      "frase": "Mmm.",
+      "krag_cara": "sonrisa",
+      "pistas": [
+        { "canal": "cara", "texto": "Matilde mira hacia la puerta." },
+        { "canal": "tono", "texto": "Solo responde «mmm»." },
+        { "canal": "cuerpo", "texto": "Empezó a guardar sus lápices." }
+      ],
+      "pregunta": "Krag lleva mucho rato en el muro y no se baja. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "Tocarle el hombro a Krag y decirle bajito: «Le toca a ella, Krag. Pregúntale algo».",
+          "pensamiento": "Desde afuera se nota clarito que ella quedó esperando su turno.",
+          "efectos": { "interes": 1 },
+          "cara": "sonrisa",
+          "consecuencia": "Krag se detiene. «¿Tú rastreas algo, Matilde?». Ella se ríe: «Rastreo pulpos, pero en los libros».",
+          "porque": "Viste las señales desde afuera, que es donde más fácil se notan. Y ayudaste a Krag sin retarlo: le pasaste una herramienta.",
+          "siguiente": "b5"
+        },
+        {
+          "texto": "Decirle: «Krag, cuéntale la versión corta y pregúntale si quiere saber más».",
+          "pensamiento": "Su tema es bueno. Solo necesita venir en una porción más chica.",
+          "efectos": { "interes": 1 },
+          "cara": "sonrisa",
+          "consecuencia": "«Sigo a los mamuts por sus huellas. ¿Quieres saber más?», dice Krag. «Un poquito», responde Matilde. «¿Son muy grandes las huellas?».",
+          "porque": "No le pediste a Krag que escondiera su tema, sino que lo compartiera de una forma que Matilde también disfrute.",
+          "siguiente": "b5"
+        },
+        {
+          "texto": "Dejar que Krag termine.",
+          "pensamiento": "A Krag le gusta mucho hablar de mamuts. No quiero interrumpirlo.",
+          "efectos": { "interes": -1 },
+          "consecuencia": "Krag termina de explicar los siete tipos de bosta. Matilde ya guardó todos sus lápices. Después Krag te pregunta: «¿Por qué miraba la puerta?».",
+          "porque": "No pasó nada grave. Y ahora puedes explicarle a Krag lo que viste: mirar la puerta, responder «mmm» y guardar las cosas son señales de que el interés bajó.",
+          "siguiente": "b5"
+        }
+      ]
+    },
+    "b5": {
+      "tipo": "acertijo",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "frase": "Mira lo que dice aquí: cada brazo de un pulpo tiene unas 240 ventosas.",
+      "palabras": { "otro": 14 },
+      "enunciado": "Un pulpo tiene 8 brazos. ¿Cuántas ventosas tiene en total, más o menos?",
+      "respuesta": 1920,
+      "pistas": [
+        "8 × 240 es lo mismo que 8 × 24, y después multiplicar por 10.",
+        "8 × 24 = 192."
+      ],
+      "explicacion": "8 × 240 = 1.920 ventosas. «¡Casi dos mil! Nunca lo había calculado», dice Matilde, y lo anota en su cuaderno.",
+      "siguiente": "b6"
+    },
+    "b6": {
+      "tipo": "decision",
+      "habla": "matilde",
+      "cara": "pensando",
+      "frase": "Oye… ¿y qué pasa si alguien se cae en un agujero negro?",
+      "palabras": { "otro": 12 },
+      "nota": "Ojo: ahora fue ella quien preguntó por tu tema.",
+      "pregunta": "Ella te pasó el muro. ¿Qué haces?",
+      "opciones": [
+        {
+          "texto": "«Te estirarías como un espagueti, porque tira más fuerte de tus pies que de tu cabeza. Se llama espaguetización. ¿Sigo?»",
+          "pensamiento": "Parto por lo más impresionante y reviso si quiere más.",
+          "herramienta": "version_corta",
+          "pregunta": true,
+          "efectos": { "interes": 2 },
+          "palabras": { "yo": 21, "otro": 6 },
+          "cara": "sorpresa",
+          "consecuencia": "«¡¿Como un espagueti?! Sí, sigue», dice Matilde.",
+          "porque": "Ella pidió tu tema, así que este turno es tuyo. Y con «¿sigo?» revisas si quiere que sigas en el muro.",
+          "siguiente": "b7"
+        },
+        {
+          "texto": "Contarle la explicación completa: el horizonte de sucesos, el tiempo que se pone lento y la espaguetización.",
+          "pensamiento": "Ahora sí preguntó. Puedo contarlo bien, con todos los detalles.",
+          "efectos": { "interes": 1 },
+          "palabras": { "yo": 80, "otro": 6 },
+          "cara": "sorpresa",
+          "consecuencia": "Matilde escucha con ganas casi todo. Al final ya está moviendo los pies, pero dice: «Qué miedo… y qué bacán».",
+          "porque": "Cuando el otro pregunta por tu tema, una presa grande está bien: el contexto cambió. Compara con tu primer turno, cuando ella todavía no sabía si le interesaba.",
+          "siguiente": "b7"
+        },
+        {
+          "texto": "«Te estiras como un espagueti. ¿Y qué pasaría si un pulpo se cayera en uno?»",
+          "pensamiento": "Puedo juntar su tema y el mío en una sola pregunta.",
+          "herramienta": "puente",
+          "pregunta": true,
+          "efectos": { "interes": 2 },
+          "palabras": { "yo": 15, "otro": 7 },
+          "cara": "sonrisa",
+          "consecuencia": "Matilde se ríe fuerte y don Hernán hace «shhh». «¡Un pulpo espagueti con ocho fideos!», susurra ella.",
+          "porque": "Otro puente: respondiste su pregunta y le pasaste el muro con una idea que mezcla los dos temas.",
+          "siguiente": "b7"
+        }
+      ]
+    },
+    "b7": {
+      "tipo": "termometro",
+      "habla": "matilde",
+      "cara": "sonrisa",
+      "sobre": "matilde",
+      "pregunta": "Segunda medición. ¿Cuánto interés tiene Matilde ahora?",
+      "senales": ["Hace preguntas nuevas.", "Se ríe y responde con frases largas.", "Dejó su libro cerrado sobre la mesa."],
+      "variantes": [
+        {
+          "si": { "var": "interes", "op": "<=", "valor": 4 },
+          "cara": "aparte",
+          "senales": ["Responde con una o dos palabras.", "Tiene su libro abierto y lo mira seguido.", "Ya guardó su estuche."]
+        },
+        {
+          "si": { "var": "interes", "op": "<=", "valor": 7 },
+          "cara": "neutral",
+          "senales": ["A veces pregunta, a veces mira su libro.", "Sonríe un poco.", "Sigue sentada en la misma mesa."]
+        }
+      ],
+      "real": "interes",
+      "preguntar": {
+        "dices": "¿Seguimos conversando o prefieres leer?",
+        "respuestas": [
+          { "max": 4, "texto": "«Prefiero leer un rato. Otro día conversamos».", "cara": "neutral" },
+          { "max": 7, "texto": "«Conversemos un poquito más».", "cara": "sonrisa" },
+          { "max": 10, "texto": "«¡Sigamos! Esto está entretenido».", "cara": "sonrisa" }
+        ]
+      },
+      "explicacion": "Fíjate en cómo cambió el termómetro entre la primera medición y esta: el interés del otro sube y baja según cómo se reparten los turnos en el muro.",
+      "siguiente": "b8"
+    },
+    "b8": {
+      "tipo": "decision",
+      "habla": "hernan",
+      "cara": "neutral",
+      "frase": "Niños, en cinco minutos cierro la biblioteca.",
+      "pregunta": "Queda poco tiempo. ¿Cómo terminas con Matilde?",
+      "opciones": [
+        {
+          "texto": "«Me gustó conversar. ¿Mañana me cuentas más de pulpos?»",
+          "pensamiento": "Quiero que sepa que lo pasé bien.",
+          "pregunta": true,
+          "efectos": { "amistad_matilde": 2 },
+          "palabras": { "yo": 9, "otro": 10 },
+          "consecuencia": "«¡Ya! Y tú me cuentas de los espaguetis espaciales», dice Matilde.",
+          "porque": "Decir que te gustó y proponer seguir otro día es como dejar el muro armado para la próxima.",
+          "siguiente": "b9"
+        },
+        {
+          "texto": "Proponerle intercambiar los libros hasta mañana.",
+          "pensamiento": "Si leo el suyo, mañana voy a tener preguntas de pulpos.",
+          "efectos": { "amistad_matilde": 2 },
+          "palabras": { "yo": 8, "otro": 9 },
+          "consecuencia": "Matilde lo piensa y acepta: «Pero cuídalo, tiene un pulpo en la tapa».",
+          "porque": "Intercambiar libros es otra forma de decir «me interesa lo tuyo», sin necesidad de hablar mucho.",
+          "siguiente": "b9"
+        },
+        {
+          "texto": "Decir «chao» y guardar tu libro.",
+          "pensamiento": "Ya conversé harto. Estoy cansado.",
+          "efectos": { "amistad_matilde": 1 },
+          "palabras": { "yo": 1, "otro": 1 },
+          "consecuencia": "«Chao», dice Matilde, y te hace una seña con la mano.",
+          "porque": "Una despedida corta también es una despedida amable. Si otro día quieres seguir la conversación, puedes buscarla tú.",
+          "siguiente": "b9"
+        }
+      ]
+    },
+    "b9": {
+      "tipo": "grafico",
+      "texto": "Así quedó el muro de esta conversación. No hay un número perfecto: es un dato para mirar con curiosidad.",
+      "nota": "La zona marcada (30 % a 70 %) es donde la mayoría de las conversaciones se sienten parejas. Fuera de ella también puede estar bien: cuando Matilde te pidió tu tema, hablar más era lo esperado.",
+      "siguiente": "b10"
+    },
+    "b10": {
+      "tipo": "fin",
+      "texto": "El cronomosquetón vibra en tu bolsillo: la cuerda del tiempo está lista.",
+      "krag": "«Hablar es como cazar en grupo», dice Krag. «Si uno corre solo, el mamut se va». No es exactamente eso, pero casi.",
+      "krag_cara": "sonrisa",
+      "siguiente": null
+    }
+  }
+}

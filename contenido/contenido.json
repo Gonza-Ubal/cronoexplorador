@@ -1,0 +1,124 @@
+{
+  "glosario": {
+    "morirse-de-hambre": {
+      "expresion": "Me muero de hambre",
+      "dice": "Que la persona se está muriendo.",
+      "quiere_decir": "Que tiene mucha hambre. Es una exageración.",
+      "tipo": "Exageración"
+    },
+    "tienes-un-lapiz": {
+      "expresion": "¿Tienes un lápiz?",
+      "dice": "Pregunta si tienes un lápiz.",
+      "quiere_decir": "Casi siempre: «¿me prestas un lápiz?».",
+      "tipo": "Pregunta indirecta"
+    },
+    "se-me-fue-la-onda": {
+      "expresion": "Se me fue la onda",
+      "dice": "Que una onda se fue a alguna parte.",
+      "quiere_decir": "Que se distrajo o se le olvidó algo.",
+      "tipo": "Modismo chileno"
+    },
+    "que-buena-idea": {
+      "expresion": "¡Qué buena idea! (con cara molesta)",
+      "dice": "Que la idea fue buena.",
+      "quiere_decir": "Lo contrario: que fue una mala idea.",
+      "tipo": "Ironía"
+    },
+    "estan-en-su-casa": {
+      "expresion": "Están en su casa",
+      "dice": "Que esa casa es tuya.",
+      "quiere_decir": "«Bienvenidos, pónganse cómodos». No es permiso para todo.",
+      "tipo": "Frase de cortesía"
+    },
+    "regalo-chiquitito": {
+      "expresion": "¡Qué regalo tan chiquitito! (riéndose, ante un regalo enorme)",
+      "dice": "Que el regalo es chico.",
+      "quiere_decir": "Lo contrario, como chiste entre amigos: ¡qué regalo tan grande!",
+      "tipo": "Ironía amistosa"
+    },
+    "estar-pato": {
+      "expresion": "Estoy pato",
+      "dice": "Que la persona es un pato.",
+      "quiere_decir": "Que no tiene plata.",
+      "tipo": "Modismo chileno"
+    },
+    "echar-una-mano": {
+      "expresion": "¿Me echai una mano?",
+      "dice": "Que le lances una mano.",
+      "quiere_decir": "«¿Me ayudas?».",
+      "tipo": "Modismo chileno"
+    }
+  },
+  "herramientas": {
+    "pregunta_de_vuelta": { "nombre": "Pregunta de vuelta", "que": "Preguntarle al otro por lo suyo.", "porque": "Es como decirle «te toca» en el muro de boulder." },
+    "version_corta": { "nombre": "Versión corta", "que": "Contar tu mejor dato en una frase y preguntar si quiere saber más.", "porque": "El otro decide cuánto quiere escuchar." },
+    "puente": { "nombre": "Puente", "que": "Unir tu tema con el tema del otro.", "porque": "Los dos temas caben en la misma conversación." },
+    "verificacion": { "nombre": "Verificación", "que": "Preguntar «¿quieres decir que…?» o «¿en serio o en broma?».", "porque": "Cambia una duda por un dato." }
+  },
+  "misiones": [
+    { "id": "a-coleccion", "foco": "A", "texto": "Esta semana, atrapa una frase que no signifique lo que dice (en el colegio, en la casa o en la tele) y cuéntasela a alguien de tu familia." },
+    { "id": "a-verificar", "foco": "A", "texto": "Esta semana, cuando no estés seguro de lo que alguien quiso decir, prueba una vez preguntar: «¿quieres decir que…?»." },
+    { "id": "a-broma", "foco": "A", "texto": "Esta semana, si alguien dice algo raro, prueba una vez preguntar: «¿lo dices en serio o en broma?»." },
+    { "id": "b-dos-preguntas", "foco": "B", "texto": "Esta semana, en una conversación, haz 2 preguntas sobre lo que le gusta a la otra persona." },
+    { "id": "b-version-corta", "foco": "B", "texto": "Esta semana, cuenta tu dato favorito en una sola frase y pregunta: «¿quieres saber más?»." },
+    { "id": "b-termometro", "foco": "B", "texto": "Esta semana, en una conversación, estima en secreto el termómetro de interés del otro (0 a 10) y fíjate en qué señales usaste." }
+  ],
+  "cartas_rol": [
+    {
+      "foco": "A", "titulo": "La frase con trampa",
+      "adulto": "Diga una frase hecha con naturalidad en una situación real («estoy muerta de cansancio», «se me fue la onda», «me comería un caballo»).",
+      "practica": "Que el niño diga las dos capas: qué dice la frase y qué quiere decir. Pregúntele qué pistas usó.",
+      "tip": "Si la toma literal, no corrija: pregunte «¿qué otra cosa podría significar?»."
+    },
+    {
+      "foco": "A", "titulo": "Mismo texto, dos tonos",
+      "adulto": "Diga «¡qué buena idea!» dos veces: una contenta de verdad y otra con fastidio (ceño, brazos cruzados, voz lenta).",
+      "practica": "Que el niño adivine cuál es cuál y diga su certeza en porcentaje. Después cambien los roles: él actúa y usted adivina.",
+      "tip": "La pantalla no enseña el tono de voz. Esta carta es la que cubre esa parte: repítala con frases distintas."
+    },
+    {
+      "foco": "A", "titulo": "¿En serio o en broma?",
+      "adulto": "Diga algo ambiguo a propósito («tu pieza quedó… interesante») con cara neutra.",
+      "practica": "Que el niño use una pregunta de verificación. Respóndale con gusto, para que compruebe que preguntar funciona.",
+      "tip": "Modele usted también: pregúntele a él «¿lo dices en serio?» cuando no esté seguro."
+    },
+    {
+      "foco": "B", "titulo": "Cinco turnos en el muro",
+      "adulto": "Conversen cinco turnos cada uno sobre un tema que usted elija y que a usted le guste de verdad.",
+      "practica": "Que el niño haga al menos dos preguntas de vuelta. Al final cuenten juntos cuántas preguntas hizo cada uno.",
+      "tip": "Muestre interés real por sus preguntas. El premio es su reacción, no una ficha."
+    },
+    {
+      "foco": "B", "titulo": "La versión corta",
+      "adulto": "Pídale que le cuente su tema favorito «en versión corta»: una frase y la pregunta «¿quieres saber más?».",
+      "practica": "A veces responda «sí, cuéntame más» y a veces «ahora no, después». Las dos respuestas son normales.",
+      "tip": "Cuando diga «sí», escuche la versión larga completa. Su interés es valioso y merece público."
+    },
+    {
+      "foco": "B", "titulo": "Termómetro en vivo",
+      "adulto": "Mientras él le cuenta algo, muestre señales claras: primero mucho interés, después distracción (mirar el celular, responder «ajá»).",
+      "practica": "Que el niño diga «termómetro» y estime de 0 a 10. Dígale el número real y qué señales dio usted.",
+      "tip": "Exagere las señales al comienzo y hágalas más sutiles con el tiempo."
+    }
+  ],
+  "guia_padres": {
+    "A": {
+      "titulo": "Interpretar con el contexto",
+      "puntos": [
+        "Nombre las dos capas en voz alta en la vida diaria: «dije que me muero de frío; quiero decir que tengo mucho frío».",
+        "Celebre cuando pregunte «¿en serio o en broma?». Es una estrategia que usan los adultos competentes, no una señal de fallo.",
+        "El lenguaje literal es un estilo válido. Pida también a hermanos y adultos que hablen directo cuando algo es importante.",
+        "Evite reírse de una interpretación literal. Si a él le hace gracia, ríanse juntos."
+      ]
+    },
+    "B": {
+      "titulo": "Reciprocidad en la conversación",
+      "puntos": [
+        "No le pida que hable menos de sus temas: pídale la «versión corta» y después, muchas veces, pida la larga.",
+        "El reparto ideal de la conversación no es 50/50. Depende de quién preguntó y de si el interés es compartido.",
+        "Busque espacios donde su interés sea el centro (un club, un primo, un taller). Ahí hablar mucho es lo esperado.",
+        "Si nota que observa demasiado a los demás o se angustia por «hacerlo bien», baje la exigencia y coméntelo con su terapeuta."
+      ]
+    }
+  }
+}

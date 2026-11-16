@@ -1,0 +1,233 @@
+{
+  "id": "marte-01",
+  "modulo": 3,
+  "titulo": "La clave de la esclusa",
+  "foco": ["A"],
+  "sutileza": 1,
+  "escena": "marte",
+  "variables": { "presto_lapiz": 0 },
+  "persistentes": [],
+  "inicio": "m0",
+  "bitacora": {
+    "invitacion": "¿Qué ley social descubriste hoy en Marte? Escríbela con tus palabras.",
+    "sugerencias": [
+      "Cuando las palabras y la cara no calzan, puede ser ironía.",
+      "«¿Tienes…?» muchas veces significa «¿me prestas…?».",
+      "Si las pistas no alcanzan, preguntar es la mejor jugada."
+    ]
+  },
+  "nodos": {
+    "m0": {
+      "tipo": "narracion",
+      "texto": "Clic. El cronomosquetón se suelta de la cuerda del tiempo y ustedes aparecen en la Base Marte Uno, en el futuro. Por la ventana se ve el suelo rojo. Aquí viven familias, y los niños van al colegio en el módulo 2.",
+      "krag": "«El cielo tiene el color del ocre con que pinto mis cuevas», dice Krag, con la nariz pegada al vidrio.",
+      "siguiente": "m1"
+    },
+    "m1": {
+      "tipo": "decodificador",
+      "contexto": "Una niña entra al comedor. Se llama Ignacia.",
+      "habla": "ignacia",
+      "cara": "sonrisa",
+      "frase": "¡Me muero de hambre!",
+      "krag": "Krag se pone pálido: «¡Se muere! ¡Hay que buscar a la curandera!».",
+      "pistas": [
+        { "canal": "cara", "texto": "Ignacia viene sonriendo." },
+        { "canal": "contexto", "texto": "El reloj de la base marca la hora de almuerzo." },
+        { "canal": "cuerpo", "texto": "Se soba la guata." },
+        { "canal": "antes", "texto": "Trabajó toda la mañana en el invernadero." }
+      ],
+      "significados": [
+        { "texto": "Tiene mucha hambre.", "plausibilidad": 0.95 },
+        { "texto": "Está enferma y en peligro.", "plausibilidad": 0.03 },
+        { "texto": "No quiere almorzar.", "plausibilidad": 0.02 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Quieres decir que tienes mucha hambre?",
+        "respuesta": "«¡Obvio! Me comería un mamut entero», dice Ignacia. Krag la mira con respeto."
+      },
+      "explicacion": "«Me muero de…» es una exageración: agranda lo que uno siente para que se note. Nadie está en peligro.",
+      "glosario": "morirse-de-hambre",
+      "siguiente": "m2"
+    },
+    "m2": {
+      "tipo": "decision",
+      "pregunta": "Krag sigue preocupado. ¿Cómo se lo explicas?",
+      "opciones": [
+        {
+          "texto": "«Es una exageración, Krag: dice algo más grande de lo que es, para mostrar que tiene MUCHA hambre.»",
+          "pensamiento": "Si le doy la regla, la puede usar en otras frases.",
+          "consecuencia": "Krag piensa un rato. «Una vez cacé un conejo y dije que era grande como un mamut. ¿Exageré?». Exacto.",
+          "porque": "Explicar una regla con tus propias palabras es la mejor prueba de que la entendiste. Y Krag ya la aplicó a un caso nuevo.",
+          "siguiente": "m3"
+        },
+        {
+          "texto": "«Está mintiendo, Krag. No se está muriendo.»",
+          "pensamiento": "Dijo algo que no es verdad. Eso se llama mentir, ¿o no?",
+          "consecuencia": "Krag va donde Ignacia: «¿Por qué mientes?». Ignacia se ríe: «No miento, exagero. Todos saben que no es de verdad, así que no engaño a nadie».",
+          "porque": "La diferencia es esta: una mentira busca que creas algo falso. Una exageración no engaña, porque el otro sabe que no es literal… salvo que venga de la prehistoria.",
+          "siguiente": "m3"
+        },
+        {
+          "texto": "«No estoy seguro. Preguntémosle.»",
+          "pensamiento": "Tengo una hipótesis, pero puedo confirmarla en diez segundos.",
+          "verificacion": true,
+          "pregunta": true,
+          "consecuencia": "«Ignacia, ¿te mueres de verdad?». «¡No! Es una forma de decir que tengo mucha hambre».",
+          "porque": "Preguntar es una herramienta de experto: cambiaste una duda por un dato. A casi nadie le molesta que le pregunten.",
+          "siguiente": "m3"
+        }
+      ]
+    },
+    "m3": {
+      "tipo": "decision",
+      "contexto": "En la sala, un niño llamado Amaru se sienta a tu lado.",
+      "habla": "amaru",
+      "cara": "neutral",
+      "frase": "¿Tienes un lápiz?",
+      "pistas": [
+        { "canal": "contexto", "texto": "Amaru tiene su croquera abierta en una hoja en blanco." },
+        { "canal": "contexto", "texto": "Sobre su mesa no hay ningún lápiz." },
+        { "canal": "cuerpo", "texto": "Está mirando tu estuche." }
+      ],
+      "pregunta": "¿Qué respondes?",
+      "opciones": [
+        {
+          "texto": "«Sí.» Y sigues con lo tuyo.",
+          "pensamiento": "Me preguntó si tengo, y sí tengo. Pregunta respondida.",
+          "consecuencia": "Amaru se queda esperando un momento. Después dice: «Eh… ¿me lo prestas?». Se lo pasas.",
+          "porque": "Respondiste exactamente lo que preguntó, y eso es lógico. Pasa que muchas preguntas que empiezan con «¿tienes…?» son una forma suave de pedir algo.",
+          "siguiente": "m4"
+        },
+        {
+          "texto": "«Sí, toma.» Y le pasas uno.",
+          "pensamiento": "Croquera abierta, sin lápiz, mirando mi estuche… creo que quiere uno.",
+          "efectos": { "presto_lapiz": 1 },
+          "consecuencia": "«¡Gracias!», dice Amaru, y se pone a dibujar un rover.",
+          "porque": "Usaste el contexto como evidencia: croquera abierta + sin lápiz + mirar tu estuche = quiere que le prestes uno.",
+          "siguiente": "m4"
+        },
+        {
+          "texto": "«¿Quieres que te preste uno?»",
+          "pensamiento": "Tengo una hipótesis. La verifico antes de actuar.",
+          "verificacion": true,
+          "pregunta": true,
+          "efectos": { "presto_lapiz": 1 },
+          "consecuencia": "«¡Sí, porfa!», dice Amaru. Le pasas uno y se pone a dibujar un rover.",
+          "porque": "Verificaste tu hipótesis antes de actuar. Es un método que no falla, y no tiene nada de raro.",
+          "siguiente": "m4"
+        }
+      ],
+      "glosario": "tienes-un-lapiz"
+    },
+    "m4": {
+      "tipo": "decodificador",
+      "contexto": "Después del almuerzo toca salir al invernadero. La tía Rosa, la monitora, se para frente a la esclusa.",
+      "habla": "rosa",
+      "cara": "pensando",
+      "frase": "Se me fue la onda… no me acuerdo de la clave.",
+      "krag": "Krag se agacha a mirar debajo de las mesas: «¿Hacia dónde se fue la onda? Yo la rastreo».",
+      "pistas": [
+        { "canal": "cuerpo", "texto": "Se rasca la cabeza y mira el teclado de la puerta." },
+        { "canal": "antes", "texto": "Acaba de teclear dos claves que no funcionaron." },
+        { "canal": "contexto", "texto": "No hay agua ni olas en ninguna parte: estamos en Marte." }
+      ],
+      "significados": [
+        { "texto": "Se le olvidó algo o se distrajo.", "plausibilidad": 0.95 },
+        { "texto": "Se le perdió un objeto que se llama «onda».", "plausibilidad": 0.03 },
+        { "texto": "Está enojada con los niños.", "plausibilidad": 0.02 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Quiere decir que se le olvidó la clave?",
+        "respuesta": "«Eso mismo. Tengo la cabeza en otra parte hoy», dice la tía Rosa. Krag le mira la cabeza, que sigue en su lugar."
+      },
+      "explicacion": "«Se me fue la onda» es un modismo chileno: significa que uno se distrajo o se le olvidó algo. No hay ninguna onda de verdad.",
+      "glosario": "se-me-fue-la-onda",
+      "siguiente": "m5"
+    },
+    "m5": {
+      "tipo": "acertijo",
+      "contexto": "La tía Rosa encuentra una pista pegada en la pared, escrita por ella misma hace meses:",
+      "enunciado": "«La clave tiene dos cifras. Las cifras suman 9. Si das vuelta el número, crece en 27.» ¿Cuál es la clave?",
+      "respuesta": 36,
+      "pistas": [
+        "Haz la lista de los números de dos cifras que suman 9: 18, 27, 36, 45…",
+        "Prueba cada uno al revés. Por ejemplo, 18 al revés es 81, y 81 − 18 = 63. Demasiado."
+      ],
+      "explicacion": "36 al revés es 63, y 63 − 36 = 27. La esclusa hace «pshhh» y se abre. «¡Salvaste la salida al invernadero!», dice la tía Rosa.",
+      "siguiente": "m6"
+    },
+    "m6": {
+      "tipo": "decodificador",
+      "contexto": "De vuelta en la sala, Amaru dejó su vaso de jugo encima del mapa que Ignacia lleva toda la semana dibujando. El vaso se volcó.",
+      "habla": "ignacia",
+      "cara": "molesta",
+      "frase": "¡Qué buena idea dejar el vaso ahí!",
+      "krag": "Krag sonríe: «¡Gracias! Pero la idea fue de Amaru».",
+      "pistas": [
+        { "canal": "cara", "texto": "Tiene el ceño fruncido." },
+        { "canal": "cuerpo", "texto": "Está con los brazos cruzados." },
+        { "canal": "tono", "texto": "Lo dice lento y fuerte, marcando cada palabra." },
+        { "canal": "antes", "texto": "Su mapa quedó manchado de jugo." }
+      ],
+      "significados": [
+        { "texto": "Está molesta: quiere decir que fue una MALA idea.", "plausibilidad": 0.93 },
+        { "texto": "Cree de verdad que fue una buena idea.", "plausibilidad": 0.04 },
+        { "texto": "Hace una broma para reírse junto con Amaru.", "plausibilidad": 0.03 }
+      ],
+      "verificacion": {
+        "pregunta": "¿Lo dices en serio o estás molesta?",
+        "respuesta": "«¡Estoy molesta! Era mi mapa», dice Ignacia. Amaru se pone rojo: «Perdón. Te ayudo a secarlo»."
+      },
+      "explicacion": "Cuando las palabras dicen una cosa, y la cara, el cuerpo y lo que pasó antes dicen lo contrario, casi siempre es ironía: se dice lo opuesto de lo que se piensa.",
+      "glosario": "que-buena-idea",
+      "siguiente": "m7"
+    },
+    "m7": {
+      "tipo": "decodificador",
+      "contexto": "Le muestras a Amaru tu dibujo: un cohete con tres motores.",
+      "habla": "amaru",
+      "cara": "neutral",
+      "frase": "Tu cohete quedó… especial.",
+      "pistas": [
+        { "canal": "cara", "texto": "Su cara está tranquila: ni sonríe ni frunce el ceño." },
+        { "canal": "tono", "texto": "Hizo una pausa antes de decir «especial»." },
+        { "canal": "cuerpo", "texto": "Sigue mirando el dibujo de cerca." },
+        { "canal": "antes", "texto": "Hasta ahora Amaru ha sido amable contigo." }
+      ],
+      "significados": [
+        { "texto": "Le gusta: es «especial» porque es distinto y original.", "plausibilidad": 0.55 },
+        { "texto": "No le gusta mucho y no sabe cómo decirlo.", "plausibilidad": 0.35 },
+        { "texto": "Se está burlando.", "plausibilidad": 0.1 }
+      ],
+      "ambiguo": true,
+      "verificacion": {
+        "pregunta": "¿Lo dices en serio o en broma?",
+        "respuesta": "«En serio. Nunca había visto un cohete con tres motores. ¿Por qué tres?», dice Amaru."
+      },
+      "explicacion": "Aquí las pistas no alcanzaban para estar seguro: «especial» puede ser bueno o malo. Cuando pasa eso, lo más inteligente es una certeza baja… y preguntar.",
+      "siguiente": "m8"
+    },
+    "m8": {
+      "tipo": "dialogo",
+      "habla": "amaru",
+      "cara": "neutral",
+      "frase": "Oye, antes yo quería que me prestaras el lápiz, no saber si tenías. Para la próxima te lo pido directo.",
+      "nota": "Amaru también aprendió algo hoy: pedir las cosas de forma directa ayuda a que todos se entiendan. Entenderse es trabajo de los dos.",
+      "variantes": [
+        {
+          "si": { "var": "presto_lapiz", "op": ">=", "valor": 1 },
+          "cara": "sonrisa",
+          "frase": "Toma tu lápiz, gracias. Y esto es para ti: me salió repetida.",
+          "nota": "Es una lámina de Saturno, con los anillos brillantes. Prestar el lápiz hace un rato tuvo una consecuencia ahora."
+        }
+      ],
+      "siguiente": "m9"
+    },
+    "m9": {
+      "tipo": "fin",
+      "texto": "El cronomosquetón empieza a vibrar: la cuerda del tiempo está lista para volver.",
+      "krag": "«En Marte la gente dice cosas que no son, pero no miente», resume Krag. «Voy a hacer una muesca en mi hueso por cada frase rara».",
+      "siguiente": null
+    }
+  }
+}
